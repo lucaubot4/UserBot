@@ -11,16 +11,16 @@ from userbot.events import register
 
 @register(outgoing=True, pattern="^.help(?: |$)(.*)")
 async def helper(event):
-    """ For .help command,"""
+    """ Per il comando .help, """
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         args = event.pattern_match.group(1)
         if args:
             if args in HELPER:
                 await event.edit(str(HELPER[args]))
             else:
-                await event.edit("Please specify a valid module name.")
+                await event.edit("Specifica un nome di modulo valido.")
         else:
-            await event.edit("Please specify which module do you want help for!")
+            await event.edit("Per favore specifica per quale modulo vuoi aiuto!")
             string = ""
             for i in HELPER:
                 string += str(i)
